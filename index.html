@@ -5,8 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>임동우 4년차 개발자 (휴식중) · 전직 저널리스트 &amp; Azure AI 엔지니어</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/sidebar.css">
   </head>
   <body>
+    <!-- 접이식 상점 메뉴: 기존 홈페이지 본문과 별도로 동작합니다. -->
+    <button type="button" id="site-menu-toggle" class="site-menu-toggle" aria-controls="site-sidebar" aria-expanded="false" aria-haspopup="dialog" aria-label="사이드바 메뉴 열기">
+      <span aria-hidden="true">☰</span><span>메뉴</span>
+    </button>
+    <dialog id="site-sidebar" class="site-sidebar" aria-labelledby="site-sidebar-title">
+      <div class="site-sidebar-header">
+        <div><p class="site-sidebar-kicker">SAKAMOTO STORE</p><h2 id="site-sidebar-title">상점 메뉴</h2></div>
+        <button type="button" id="site-menu-close" class="site-menu-close" aria-label="사이드바 메뉴 닫기">✕</button>
+      </div>
+      <nav class="site-sidebar-nav" aria-label="사이트 메뉴">
+        <a href="/" aria-current="page"><span aria-hidden="true">🏪</span><span>메인페이지<small>점장 소개와 작전 기록</small></span></a>
+        <a href="/planner/"><span aria-hidden="true">📅</span><span>데일리 플래너<small>하루의 계획 · 공개 조회</small></span><span class="site-sidebar-arrow" aria-hidden="true">↗</span></a>
+      </nav>
+      <p class="site-sidebar-note">플래너는 누구나 볼 수 있어요.<br>일정 편집은 점장의 SSH 접속에서만!</p>
+      <p class="site-sidebar-footer">작은 계획도, 하나의 작전.</p>
+    </dialog>
+
     <!-- 경고/액션 테이프 스트라이프 -->
     <div class="caution-strip"></div>
 
@@ -274,5 +292,6 @@
       console.log('%c가훈 1조: 소스코드 무단 열람 및 변조 절대 금지!', 'color: #111215; font-size: 14px; font-weight: bold;');
 
     </script>
+    <script src="/sidebar.js" defer></script>
   </body>
 </html>

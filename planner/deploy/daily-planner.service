@@ -1,0 +1,23 @@
+[Unit]
+Description=Private daily planner (FastAPI)
+After=network.target
+
+[Service]
+Type=simple
+User=azureuser
+Group=azureuser
+WorkingDirectory=/home/azureuser/daily-planner
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PLANNER_DB=/home/azureuser/daily-planner/data/planner.sqlite3
+ExecStart=/home/azureuser/daily-planner/.venv/bin/python -m uvicorn app:app --host 127.0.0.1 --port 8765 --no-proxy-headers
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/azureuser/daily-planner/data
+
+[Install]
+WantedBy=multi-user.target
